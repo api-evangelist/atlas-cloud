@@ -1,23 +1,177 @@
 aid: atlas-cloud
 name: Atlas Cloud
-description: 'Atlas Cloud is a company surfaced via the API Evangelist harvest backlog (source: market-gap:ai-model-routing)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Atlas Cloud is an AI inference platform that serves 300+ third-party LLM, image, video, audio and 3D models through one API: an OpenAI-compatible chat completions surface at https://api.atlascloud.ai/v1 (plus Anthropic Messages and Gemini protocols), asynchronous image and video generation with prediction polling and signed webhooks at https://api.atlascloud.ai/api/v1, and a Billing Public API for balance, usage and cost at https://api.atlascloud.ai/public/v1. It also sells GPU cloud, bare-metal servers and storage, and ships an official MCP server, CLI and agent skills.'
 url: https://raw.githubusercontent.com/api-evangelist/atlas-cloud/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:market-gap:ai-model-routing
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-13 (local-v5; was harvest)
 specificationVersion: '0.20'
 created: '2026-10-13'
 modified: '2026-10-13'
 tags:
 - Company
-apis: []
+- Artificial Intelligence
+- LLM
+- Model Routing
+- Image Generation
+- Video Generation
+- Inference
+- GPU Cloud
+- MCP
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+image: https://www.atlascloud.ai/favicon.ico
 common:
+- type: Authentication
+  url: authentication/atlas-cloud-authentication.yml
+- type: RateLimits
+  url: rate-limits/atlas-cloud-rate-limits.yml
+- type: Plans
+  url: plans/atlas-cloud-plans-pricing.yml
+- type: Spectral
+  url: rules/atlas-cloud-rules.yml
+- type: JSONLD
+  url: json-ld/atlas-cloud-context.jsonld
+- type: Vocabulary
+  url: vocabulary/atlas-cloud-vocabulary.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Webhooks
+  url: asyncapi/atlas-cloud-webhooks.yml
+- type: DataModel
+  url: data-model/atlas-cloud-data-model.yml
+- type: CLI
+  url: cli/atlas-cloud-cli.yml
+- type: ChangeLog
+  url: changelog/atlas-cloud-changelog.yml
+- type: Conventions
+  url: conventions/atlas-cloud-conventions.yml
+- type: ErrorCatalog
+  url: errors/atlas-cloud-error-codes.yml
+- type: Conformance
+  url: conformance/atlas-cloud-conformance.yml
+- type: LLMsTxt
+  url: llms/atlas-cloud-llms.txt
+- type: ToolCrosswalk
+  url: mcp/atlas-cloud-tool-crosswalk.yml
+- type: MCPServer
+  url: mcp/atlas-cloud-mcp.yml
+- type: Hosts
+  url: hosts/atlas-cloud-hosts.yml
+- type: IntegrationEdges
+  url: integrations/atlas-cloud-integration-edges.yml
+- type: Vendors
+  url: vendors/atlas-cloud-vendors.yml
+- type: SDKs
+  url: packages/atlas-cloud-packages.yml
+- type: Packages
+  url: packages/atlas-cloud-packages.yml
+- type: Sandbox
+  url: https://www.atlascloud.ai/console
+- type: DomainSecurity
+  url: security/atlas-cloud-domain-security.yml
 - type: Website
   url: https://www.atlascloud.ai
+- type: DeveloperPortal
+  url: https://www.atlascloud.ai/developer
+- type: Documentation
+  url: https://www.atlascloud.ai/docs
+- type: APIReference
+  url: https://www.atlascloud.ai/docs/openapi-index
+- type: GettingStarted
+  url: https://www.atlascloud.ai/docs/get-started
+- type: Support
+  url: https://www.atlascloud.ai/docs/contact
+- type: Blog
+  url: https://www.atlascloud.ai/blog
+- type: GitHubOrganization
+  url: https://github.com/AtlasCloudAI
+- type: Pricing
+  url: https://www.atlascloud.ai/docs/models/price
+- type: Login
+  url: https://www.atlascloud.ai/login
+- type: PrivacyPolicy
+  url: https://www.atlascloud.ai/docs/privacy
+- type: ChangeLog
+  url: https://www.atlascloud.ai/docs/changelog
+- type: Newsroom
+  url: https://www.atlascloud.ai/news
+- type: TermsOfService
+  url: https://www.atlascloud.ai/privacy
+apis:
+- aid: atlas-cloud:atlas-cloud-model-api
+  name: Atlas Cloud Model API
+  description: OpenAI-compatible chat completions for hosted LLMs (also Anthropic Messages and Gemini generateContent protocols), plus asynchronous image and video generation, media upload and prediction polling.
+  humanURL: https://www.atlascloud.ai/docs/models/overview
+  baseURL: https://api.atlascloud.ai
+  tags:
+  - LLM
+  - Image Generation
+  - Video Generation
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/atlas-cloud-openapi-generated.yml
+    x-provenance: generated
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/models/overview
+  - type: APIReference
+    url: https://www.atlascloud.ai/docs/openapi-index
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-get-api-v1-webhooks-jwks-json-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-response-schema.json
+  image: https://www.atlascloud.ai/favicon.ico
+- aid: atlas-cloud:atlas-cloud-billing-public-api
+  name: Atlas Cloud Billing Public API
+  description: Read-only API to query account balance, daily model usage and daily model costs.
+  humanURL: https://www.atlascloud.ai/docs/public-api
+  baseURL: https://api.atlascloud.ai/public/v1
+  tags:
+  - Billing
+  - Usage
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/atlas-cloud-openapi-generated.yml
+    x-provenance: generated
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/public-api
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-get-api-v1-webhooks-jwks-json-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-response-schema.json
+  image: https://www.atlascloud.ai/favicon.ico
+x-enrichment:
+  date: '2026-10-13'
+  status: enriched
+  artifacts_added: 33
+  pass: local-v5
+x-coverage:
+  state: none
+  reason: no-developer-program
+  method: derived
+  generated: '2026-10-13'
+  generator: derive-coverage.py (pre-flight evidence)
+  detail: the company publishes no developer documentation host and no machine-readable contract on its own domain
+  evidence:
+  - url: https://www.atlascloud.ai
+    status: 200

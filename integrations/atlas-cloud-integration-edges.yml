@@ -1,0 +1,34 @@
+generated: '2026-10-13'
+method: searched
+source:
+- https://zapier.com/apps/atlas-cloud/integrations
+- https://n8n.io/integrations/atlas-cloud/
+- https://composio.dev/toolkits/atlas-cloud
+- https://monid.ai/tools/atlas-cloud
+checked:
+- https://composio.dev/toolkits/atlas-cloud
+- https://monid.ai/tools/atlas-cloud
+- https://n8n.io/integrations/atlas-cloud/
+- https://www.atlascloud.ai/docs/integrations
+- https://zapier.com/apps/atlas-cloud/integrations
+summary: Docs integrations page names provider-built ComfyUI nodes and n8n community nodes (both in github.com/AtlasCloudAI);
+  no Zapier/Make/n8n marketplace listing found by the sweep.
+marketplace_apps: []
+edges:
+- partner_name: ComfyUI
+  partner: null
+  type: claimed
+  evidence: https://www.atlascloud.ai/docs/integrations/comfyui
+  marketplace: null
+  direction: provider-built
+  category: workflow canvas
+  operations: []
+- partner_name: n8n
+  partner: n8n
+  type: claimed
+  evidence: https://www.atlascloud.ai/docs/integrations/n8n
+  marketplace: null
+  direction: provider-built
+  category: automation
+  operations: []
+templates: []

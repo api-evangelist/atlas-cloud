@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/atlas-cloud/main/json-schema/atlas-cloud-post-chat-completions-request-schema.json",
+  "title": "PostChatCompletionsRequest",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostChatCompletionsRequest",
+  "type": "object",
+  "properties": {
+    "model": {
+      "type": "string",
+      "description": "Model identifier (e.g., deepseek-v3, qwen-turbo)"
+    },
+    "messages": {
+      "type": "array",
+      "description": "Conversation messages with role and content"
+    },
+    "temperature": {
+      "type": "number",
+      "description": "Controls randomness (0.0 - 2.0, default varies by model)"
+    },
+    "max_tokens": {
+      "type": "number",
+      "description": "Maximum tokens in the response"
+    },
+    "stream": {
+      "type": "boolean",
+      "description": "Enable streaming output"
+    },
+    "top_p": {
+      "type": "number",
+      "description": "Nucleus sampling parameter"
+    }
+  },
+  "required": [
+    "model",
+    "messages"
+  ]
+}

@@ -1,0 +1,32 @@
+name: Atlas Cloud CLI
+generated: '2026-10-13'
+method: searched
+source: https://www.atlascloud.ai/docs/cli
+binary: atlas
+repository: https://github.com/AtlasCloudAI/cli
+install:
+- curl -fsSL https://raw.githubusercontent.com/AtlasCloudAI/cli/main/install.sh | sh
+- irm https://raw.githubusercontent.com/AtlasCloudAI/cli/main/install.ps1 | iex
+- brew install AtlasCloudAI/tap/atlascloud
+- npm install -g atlascloud-cli
+commands:
+- command: atlas auth
+  purpose: Sign in, check/refresh the existing session, or sign out
+- command: atlas models
+  purpose: Discover models and inspect schemas
+- command: atlas chat
+  purpose: Chat or analyze supported image/video/audio inputs
+- command: atlas generate
+  purpose: Generate image/video/audio/3D outputs, estimate cost, and retrieve tasks
+- command: atlas generate ops
+  purpose: Inspect local receipts and resume accepted tasks
+- command: atlas skills
+  purpose: Install or read the Atlas agent skill
+- command: atlas account
+  purpose: Show, list, or switch accounts
+- command: atlas doctor
+  purpose: Diagnose local installation and configuration
+- command: atlas update
+  purpose: Update an official native installation
+- command: atlas version
+  purpose: Show the installed version

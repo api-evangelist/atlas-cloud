@@ -1,0 +1,202 @@
+{
+  "@context": {
+    "@vocab": "https://atlascloud.ai/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "atlas": "https://atlascloud.ai/schema#",
+    "GetApiV1ModelPredictionIdResponse": "atlas:GetApiV1ModelPredictionIdResponse",
+    "code": {
+      "@id": "atlas:code",
+      "@type": "xsd:integer"
+    },
+    "data": {
+      "@id": "atlas:data"
+    },
+    "data.id": {
+      "@id": "atlas:data.id",
+      "@type": "xsd:string"
+    },
+    "data.status": {
+      "@id": "atlas:data.status",
+      "@type": "xsd:string"
+    },
+    "data.outputs": {
+      "@id": "atlas:data.outputs",
+      "@container": "@list"
+    },
+    "PostApiV1ModelModelidRequest": "atlas:PostApiV1ModelModelidRequest",
+    "model": {
+      "@id": "atlas:model",
+      "@type": "xsd:string"
+    },
+    "prompt": {
+      "@id": "atlas:prompt",
+      "@type": "xsd:string"
+    },
+    "resolution": {
+      "@id": "atlas:resolution",
+      "@type": "xsd:string"
+    },
+    "duration": {
+      "@id": "atlas:duration",
+      "@type": "xsd:integer"
+    },
+    "PostApiV1ModelModelidResponse": "atlas:PostApiV1ModelModelidResponse",
+    "Authorization": {
+      "@id": "atlas:Authorization",
+      "@type": "xsd:string"
+    },
+    "GetApiV1WebhooksJwksJsonResponse": "atlas:GetApiV1WebhooksJwksJsonResponse",
+    "keys": {
+      "@id": "atlas:keys",
+      "@container": "@list"
+    },
+    "kty": {
+      "@id": "atlas:kty",
+      "@type": "xsd:string"
+    },
+    "crv": {
+      "@id": "atlas:crv",
+      "@type": "xsd:string"
+    },
+    "x": {
+      "@id": "atlas:x",
+      "@type": "xsd:string"
+    },
+    "use": {
+      "@id": "atlas:use",
+      "@type": "xsd:string"
+    },
+    "alg": {
+      "@id": "atlas:alg",
+      "@type": "xsd:string"
+    },
+    "kid": {
+      "@id": "atlas:kid",
+      "@type": "xsd:string"
+    },
+    "GetBalanceResponse": "atlas:GetBalanceResponse",
+    "value": {
+      "@id": "atlas:value",
+      "@type": "xsd:string"
+    },
+    "currency": {
+      "@id": "atlas:currency",
+      "@type": "xsd:string"
+    },
+    "PostChatCompletionsRequest": "atlas:PostChatCompletionsRequest",
+    "messages": {
+      "@id": "atlas:messages",
+      "@container": "@list"
+    },
+    "temperature": {
+      "@id": "atlas:temperature",
+      "@type": "xsd:decimal"
+    },
+    "max_tokens": {
+      "@id": "atlas:max_tokens",
+      "@type": "xsd:decimal"
+    },
+    "stream": {
+      "@id": "atlas:stream",
+      "@type": "xsd:boolean"
+    },
+    "top_p": {
+      "@id": "atlas:top_p",
+      "@type": "xsd:decimal"
+    },
+    "PostChatCompletionsResponse": "atlas:PostChatCompletionsResponse",
+    "choices": {
+      "@id": "atlas:choices",
+      "@container": "@list"
+    },
+    "message": {
+      "@id": "atlas:message"
+    },
+    "GetModelCostsResponse": "atlas:GetModelCostsResponse",
+    "has_more": {
+      "@id": "atlas:has_more",
+      "@type": "xsd:boolean"
+    },
+    "next_page": {
+      "@id": "atlas:next_page",
+      "@type": "xsd:string"
+    },
+    "GetModelUsageResponse": "atlas:GetModelUsageResponse",
+    "PostModelModelidRequest": "atlas:PostModelModelidRequest",
+    "PostModelModelidResponse": "atlas:PostModelModelidResponse",
+    "id": {
+      "@id": "atlas:id",
+      "@type": "xsd:string"
+    },
+    "GetPublicV1V1IdResponse": "atlas:GetPublicV1V1IdResponse",
+    "PostV1Request": "atlas:PostV1Request",
+    "PostV1Response": "atlas:PostV1Response",
+    "role": {
+      "@id": "atlas:role",
+      "@type": "xsd:string"
+    },
+    "content": {
+      "@id": "atlas:content",
+      "@type": "xsd:string"
+    },
+    "PostV1ChatCompletionsRequest": "atlas:PostV1ChatCompletionsRequest",
+    "PostV1ImagesGenerationsRequest": "atlas:PostV1ImagesGenerationsRequest",
+    "n": {
+      "@id": "atlas:n",
+      "@type": "xsd:integer"
+    },
+    "size": {
+      "@id": "atlas:size",
+      "@type": "xsd:string"
+    },
+    "PostV1MessagesCountTokensRequest": "atlas:PostV1MessagesCountTokensRequest",
+    "PostV1MessagesCountTokensResponse": "atlas:PostV1MessagesCountTokensResponse",
+    "input_tokens": {
+      "@id": "atlas:input_tokens",
+      "@type": "xsd:integer"
+    },
+    "PostV1V1IdRequest": "atlas:PostV1V1IdRequest",
+    "PostV1V1IdResponse": "atlas:PostV1V1IdResponse",
+    "input": {
+      "@id": "atlas:input",
+      "@container": "@list"
+    },
+    "max_output_tokens": {
+      "@id": "atlas:max_output_tokens",
+      "@type": "xsd:integer"
+    },
+    "PostV1BetaModelsModelGeneratecontentRequest": "atlas:PostV1BetaModelsModelGeneratecontentRequest",
+    "contents": {
+      "@id": "atlas:contents",
+      "@container": "@list"
+    },
+    "generationConfig": {
+      "@id": "atlas:generationConfig"
+    },
+    "systemInstruction": {
+      "@id": "atlas:systemInstruction",
+      "@type": "xsd:string"
+    },
+    "tools": {
+      "@id": "atlas:tools",
+      "@container": "@list"
+    },
+    "PostV1BetaModelsModelGeneratecontentResponse": "atlas:PostV1BetaModelsModelGeneratecontentResponse",
+    "candidates": {
+      "@id": "atlas:candidates",
+      "@container": "@list"
+    },
+    "usageMetadata": {
+      "@id": "atlas:usageMetadata"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Atlas Cloud API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Atlas Cloud's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-13) from openapi/_ae-authored/atlas-cloud-openapi-generated.yml.",
+  "dcterms:created": "2026-10-13",
+  "dcterms:source": [
+    "openapi/_ae-authored/atlas-cloud-openapi-generated.yml"
+  ]
+}

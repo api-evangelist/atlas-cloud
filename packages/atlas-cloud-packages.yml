@@ -1,0 +1,37 @@
+name: Atlas Cloud packages
+generated: '2026-10-13'
+method: searched
+source: https://www.atlascloud.ai/docs/mcp-server
+packages:
+- name: atlascloud-mcp
+  registry: npm
+  url: https://www.npmjs.com/package/atlascloud-mcp
+  language: JavaScript
+  official: true
+  version: 1.7.0
+  published: '2026-08-27'
+  note: official MCP server per docs/mcp-server; source github.com/AtlasCloudAI/mcp-server
+- name: atlascloud-cli
+  registry: npm
+  url: https://www.npmjs.com/package/atlascloud-cli
+  language: JavaScript
+  official: true
+  version: 0.1.36
+  published: '2026-10-06'
+  note: installs the atlas CLI; docs/cli; repo github.com/AtlasCloudAI/cli
+- name: atlascloud
+  registry: homebrew
+  url: https://github.com/AtlasCloudAI/homebrew-tap
+  language: Go
+  official: true
+  version: null
+  published: null
+  note: Homebrew formula AtlasCloudAI/tap/atlascloud per docs/cli; tap has no registry metadata endpoint queried
+- name: n8n-nodes-atlascloud
+  registry: npm
+  url: https://www.npmjs.com/package/n8n-nodes-atlascloud
+  language: TypeScript
+  official: true
+  version: 0.1.1
+  published: '2026-01-15'
+  note: n8n community nodes from github.com/AtlasCloudAI/n8n-nodes-atlascloud

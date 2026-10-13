@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/atlas-cloud/main/json-schema/atlas-cloud-get-api-v1-webhooks-jwks-json-response-schema.json",
+  "title": "GetApiV1WebhooksJwksJsonResponse",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/GetApiV1WebhooksJwksJsonResponse",
+  "type": "object",
+  "properties": {
+    "keys": {
+      "type": "array",
+      "description": "Array of JWK public keys for Ed25519 signature verification"
+    },
+    "kty": {
+      "type": "string",
+      "description": "Key type (OKP for Ed25519)"
+    },
+    "crv": {
+      "type": "string",
+      "description": "Curve (Ed25519)"
+    },
+    "x": {
+      "type": "string",
+      "description": "base64url-encoded Ed25519 public key"
+    },
+    "use": {
+      "type": "string",
+      "description": "Key usage (sig)"
+    },
+    "alg": {
+      "type": "string",
+      "description": "Algorithm (EdDSA)"
+    },
+    "kid": {
+      "type": "string",
+      "description": "Key ID for signature header correlation"
+    }
+  }
+}

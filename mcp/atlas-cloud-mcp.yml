@@ -1,0 +1,42 @@
+name: Atlas Cloud MCP Server
+generated: '2026-10-13'
+method: searched
+source: https://www.atlascloud.ai/docs/mcp-server
+status: official
+repository: https://github.com/AtlasCloudAI/mcp-server
+license: MIT
+deployment:
+  mode: local-stdio
+  install: npx -y atlascloud-mcp
+  package: https://www.npmjs.com/package/atlascloud-mcp
+  auth: api-key
+  verified: searched
+tools_l3: table
+note: Tool names are the provider-documented table on docs/mcp-server; no hosted remote endpoint is documented and we did not run the server.
+tools:
+- name: atlas_search_docs
+  description: Search Atlas Cloud documentation and models by keyword
+- name: atlas_list_models
+  description: List all available models, optionally filtered by type (Text/Image/Video/Audio)
+- name: atlas_get_model_info
+  description: Get detailed model info including API schema, parameters, and usage examples
+- name: atlas_generate_image
+  description: Generate images and 3D models (image-to-3D / text-to-3D) with any supported Image model
+- name: atlas_generate_video
+  description: Generate videos with any supported video model
+- name: atlas_generate_audio
+  description: Generate audio / speech (TTS) with any supported audio model
+- name: atlas_quick_generate
+  description: One-step image/video/audio generation — auto-finds model by keyword, builds params, and submits
+- name: atlas_upload_media
+  description: Upload local files to get a URL for use with image-edit / image-to-video models
+- name: atlas_chat
+  description: Chat with LLM models (OpenAI-compatible format)
+- name: atlas_get_prediction
+  description: Check status and result of image/video/audio/3D generation tasks
+- name: atlas_get_balance
+  description: Get the account balance and credit summary for your API key
+- name: atlas_get_model_usage
+  description: Get daily model usage (requests, tokens, image/video counts) over a date range
+- name: atlas_get_model_costs
+  description: Get daily model cost (spend) buckets over a date range

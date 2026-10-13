@@ -1,0 +1,163 @@
+generated: '2026-10-13'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml
+vocabulary:
+  name: Atlas Cloud Domain Vocabulary
+  description: 'Terms declared by Atlas Cloud''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-13'
+  terms:
+  - term: GetApiV1ModelPredictionIdResponse
+    definition: 'Object declared by the contract with fields: code, data, data.id, data.status, data.outputs.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/GetApiV1ModelPredictionIdResponse
+  - term: PostApiV1ModelModelidRequest
+    definition: 'Object declared by the contract with fields: model, prompt, resolution, duration.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostApiV1ModelModelidRequest
+  - term: PostApiV1ModelModelidResponse
+    definition: 'Object declared by the contract with fields: Authorization.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostApiV1ModelModelidResponse
+  - term: GetApiV1WebhooksJwksJsonResponse
+    definition: 'Object declared by the contract with fields: keys, kty, crv, x, use, alg, kid.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/GetApiV1WebhooksJwksJsonResponse
+  - term: GetBalanceResponse
+    definition: 'Object declared by the contract with fields: value, currency.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/GetBalanceResponse
+  - term: PostChatCompletionsRequest
+    definition: 'Object declared by the contract with fields: model, messages, temperature, max_tokens, stream, top_p.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostChatCompletionsRequest
+  - term: PostChatCompletionsResponse
+    definition: 'Object declared by the contract with fields: choices, message.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostChatCompletionsResponse
+  - term: GetModelCostsResponse
+    definition: 'Object declared by the contract with fields: has_more, next_page.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/GetModelCostsResponse
+  - term: GetModelUsageResponse
+    definition: 'Object declared by the contract with fields: has_more, next_page.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/GetModelUsageResponse
+  - term: PostModelModelidRequest
+    definition: 'Object declared by the contract with fields: model, prompt.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostModelModelidRequest
+  - term: PostModelModelidResponse
+    definition: 'Object declared by the contract with fields: data, id.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostModelModelidResponse
+  - term: GetPublicV1V1IdResponse
+    definition: 'Object declared by the contract with fields: value, currency.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/GetPublicV1V1IdResponse
+  - term: PostV1Request
+    definition: 'Object declared by the contract with fields: model, prompt.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostV1Request
+  - term: PostV1Response
+    definition: 'Object declared by the contract with fields: role, content.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostV1Response
+  - term: PostV1ChatCompletionsRequest
+    definition: 'Object declared by the contract with fields: model, messages, temperature, max_tokens.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostV1ChatCompletionsRequest
+  - term: PostV1ImagesGenerationsRequest
+    definition: 'Object declared by the contract with fields: model, prompt, n, size.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostV1ImagesGenerationsRequest
+  - term: PostV1MessagesCountTokensRequest
+    definition: 'Object declared by the contract with fields: model, messages.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostV1MessagesCountTokensRequest
+  - term: PostV1MessagesCountTokensResponse
+    definition: 'Object declared by the contract with fields: input_tokens.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostV1MessagesCountTokensResponse
+  - term: PostV1V1IdRequest
+    definition: 'Object declared by the contract with fields: model, max_tokens, messages.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostV1V1IdRequest
+  - term: PostV1V1IdResponse
+    definition: 'Object declared by the contract with fields: model, input, max_output_tokens.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostV1V1IdResponse
+  - term: PostV1BetaModelsModelGeneratecontentRequest
+    definition: 'Object declared by the contract with fields: contents, generationConfig, systemInstruction, tools.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostV1BetaModelsModelGeneratecontentRequest
+  - term: PostV1BetaModelsModelGeneratecontentResponse
+    definition: 'Object declared by the contract with fields: candidates, usageMetadata.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml#/components/schemas/PostV1BetaModelsModelGeneratecontentResponse
+  - term: Api
+    definition: 'Resource group in the contract; its operation GET /api/v1/model/prediction: GET /api/v1/model/prediction'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml
+  - term: Chat
+    definition: 'Resource group in the contract; its operation POST /chat/completions: The LLM API supports both streaming and non-streaming modes,
+      fully compatible with the OpenAI ChatCompletion format.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml
+  - term: Images
+    definition: 'Resource group in the contract; its operation POST /v1/images/generations: POST /v1/images/generations'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml
+  - term: Messages
+    definition: 'Resource group in the contract; its operation POST /v1/messages/count_tokens: Count tokens for messages using the Anthropic Messages
+      protocol.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml
+  - term: V1Beta
+    definition: 'Resource group in the contract; its operation POST /v1beta/models/{model}{generateContent}: Generate content using the Google
+      Gemini protocol.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml
+  - term: Balance
+    definition: 'Resource group in the contract; its operation GET /public/v1/balance: Current account balance and credit grant summary'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml
+  - term: Model Costs
+    definition: 'Resource group in the contract; its operation GET /public/v1/model-costs: Daily model cost buckets'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml
+  - term: Model Usage
+    definition: 'Resource group in the contract; its operation GET /public/v1/model-usage: Daily model usage buckets'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/atlas-cloud-openapi-generated.yml

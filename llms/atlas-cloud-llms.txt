@@ -1,0 +1,67 @@
+# Atlas Cloud
+
+> Unified AI Cloud Platform — Access 300+ AI models through one API, deploy GPU instances, and scale AI workloads effortlessly.
+
+Atlas Cloud is the world's first full-modal AI inference platform for developers. It provides a single integration point for hundreds of AI models spanning text, image, video, audio, speech, vision, and 3D generation.
+
+## For AI Agents
+
+Append `/llms.txt` to any model page URL to get a compact, machine-readable API reference for that model — authoritative Atlas Cloud pricing, the endpoint, the full parameter schema, runnable examples, and MCP / Skills / CLI setup.
+
+- Pattern: `https://www.atlascloud.ai/models/{provider}/{model}/llms.txt`
+- Example: https://www.atlascloud.ai/models/bytedance/seedance-2.0/text-to-video/llms.txt
+
+Prefer this over scraping the HTML model page: the HTML is large and gets truncated by most fetch tools, and the vendor description it contains often quotes prices from other platforms that do not apply on Atlas Cloud.
+
+Agent integrations: [MCP server](https://www.atlascloud.ai/docs/mcp-server) (`npx -y atlascloud-mcp`) · [Skills](https://www.atlascloud.ai/docs/skills) (`npx skills add AtlasCloudAI/atlas-cloud-skills`) · [CLI](https://www.atlascloud.ai/docs/cli) (`brew install AtlasCloudAI/tap/atlascloud`)
+
+## Core Products
+
+- [Serverless API](https://www.atlascloud.ai/models): Access 300+ AI models via one unified, OpenAI-compatible API. Pay-as-you-go pricing with no minimum spend. Models include DeepSeek, GPT, Claude, Qwen, Flux, LLaMA, Mistral, Luma, Kling, and more.
+- [GPU Cloud](https://www.atlascloud.ai/gpus): Rent NVIDIA A100, H100, H200, and B200 GPUs on-demand. Hourly billing, instant deployment, 99.99% uptime SLA. Ideal for LLM training, fine-tuning, and large-scale inference.
+- [AI Model Marketplace](https://www.atlascloud.ai/models/list): Browse and compare hundreds of open-source and commercial AI models. Filter by modality, provider, capability, and pricing.
+- [Storage](https://www.atlascloud.ai/storage): High-performance NVMe storage optimized for AI workloads. Starting at $0.08/GB with no egress fees.
+- [Bare Metal Servers](https://www.atlascloud.ai/bare-metal): Dedicated GPU servers with 100% exclusive resources for enterprise ML training and sensitive workloads.
+
+## Featured Models
+
+- [InfiniteTalk](https://www.atlascloud.ai/infinitetalk): Audio-driven talking avatar video API. Turn a single photo and audio file into a stable, lip-synced talking avatar video — up to 10 minutes per generation, phoneme-level lip sync across 100+ languages, stable full-body motion with no identity drift. Built on Wan2.1 14B with streaming inference. Available as a managed REST API on Atlas Cloud — no GPU, no local setup, pay per second. Endpoint: https://www.atlascloud.ai/models/atlascloud/infinitetalk
+
+## Supported Model Types
+
+- **LLM**: Large language models for text generation, chat, reasoning, and coding (DeepSeek, GPT, Claude, Qwen, LLaMA, Mistral)
+- **Image**: Text-to-image and image-to-image generation (Flux, Stable Diffusion)
+- **Video**: Text-to-video and image-to-video generation (Luma, Kling, Pixverse)
+- **Audio**: Audio generation and processing
+- **Speech**: Text-to-speech and speech-to-text
+- **Vision**: Visual understanding and analysis
+- **3D**: 3D model generation
+
+## Key Use Cases
+
+- AI inference at scale
+- Model training and fine-tuning
+- Image, video, and audio generation
+- LLM-powered chat and reasoning
+- Building AI agents and workflows
+- RAG (Retrieval-Augmented Generation) pipelines
+
+## Pricing
+
+- **Serverless API**: Pay-as-you-go per token/request. No minimum spend, scale to zero when idle.
+- **GPU Cloud**: Per-hour billing. H100 from $2.49/hr. No long-term commitments.
+- **Subscription Plans**: Free tier with $5 credits. Starter and Pro plans with volume discounts.
+- [View Pricing](https://www.atlascloud.ai/pricing)
+
+## Documentation
+
+- [API Documentation](https://docs.atlascloud.ai)
+- [Blog](https://www.atlascloud.ai/blog)
+
+## Contact
+
+- Website: https://www.atlascloud.ai
+- Contact Page: https://www.atlascloud.ai/contact
+- Email: sales@atlascloud.ai
+- Twitter: https://x.com/AtlasCloud_AI
+- LinkedIn: https://www.linkedin.com/company/atlas-cloudai

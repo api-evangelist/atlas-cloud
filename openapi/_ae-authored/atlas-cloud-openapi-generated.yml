@@ -1,0 +1,710 @@
+openapi: 3.1.0
+info:
+  title: Atlas Cloud API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 17 operation(s) read from 25 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Atlas Cloud has published no machine-readable contract that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 16
+    documentation: 1
+    pages-with-code: 21
+    pages-read: 25
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://www.atlascloud.ai/docs/public-api
+  - https://www.atlascloud.ai/docs/api-keys
+  - https://www.atlascloud.ai/docs/webhooks
+  - https://www.atlascloud.ai/docs/models/llm
+  - https://www.atlascloud.ai/docs/get-started
+  - https://www.atlascloud.ai/docs/llm-protocols
+  - https://www.atlascloud.ai/docs/tutorials/text-to-image
+  - https://www.atlascloud.ai/docs/tutorials/narrated-video
+  - https://www.atlascloud.ai/docs/cli
+  - https://www.atlascloud.ai/docs/models/get-start
+  - https://www.atlascloud.ai/docs/models/image
+  - https://www.atlascloud.ai/docs/models/video
+  - https://www.atlascloud.ai/docs/models/audio
+  - https://www.atlascloud.ai/docs/how-it-works
+  - https://www.atlascloud.ai/docs/predictions
+  - https://www.atlascloud.ai/docs/upload-files
+  - https://www.atlascloud.ai/docs/data-retention
+  - https://www.atlascloud.ai/docs/skills
+  - https://www.atlascloud.ai/docs/createChatCompletion
+  - https://www.atlascloud.ai/docs/billing/model-billing
+  - https://www.atlascloud.ai/docs/billing/credits
+  - https://www.atlascloud.ai/docs/faq
+  - https://www.atlascloud.ai/docs/public-api/balance
+  - https://www.atlascloud.ai/docs/public-api/model-usage
+  - https://www.atlascloud.ai/docs/public-api/model-costs
+  x-pruned: '2026-10-13: removed 4 non-API paths the generator kept (CLI install.sh, bare /v1, a templated example of /public/v1/balance, a duplicate of /api/v1/model/{modelid}); re-prefixed public billing paths'
+servers:
+- url: https://api.atlascloud.ai
+paths:
+  /api/v1/model/prediction:
+    get:
+      operationId: get_api_v1_model_prediction
+      tags:
+      - Api
+      summary: GET /api/v1/model/prediction
+      x-source: https://www.atlascloud.ai/docs/tutorials/text-to-image
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -s \"https://api.atlascloud.ai/api/v1/model/prediction/ $PREDICTION_ID \"  -H \"Authorization: Bearer $ATLASCLOUD_API_KEY \" ) \n STATUS = $( echo $RESULT | jq -r '.data.status' ) \n echo \"Status: $STATUS \" \n if [ \" $STATUS \" = \"completed\" ]; then \n echo $RESULT | jq -r '.data.outputs[0]' \n break \n elif [ \" $STATUS \" = \"failed\" ]; then \n echo \"Failed: $( echo $RESULT | jq -r '.data.error')\" \n break"
+  /api/v1/model/prediction/{id}:
+    get:
+      operationId: get_api_v1_model_prediction_id
+      tags:
+      - Api
+      summary: Poll for the result of an audio generation job until status reaches a terminal state.
+      x-source: https://www.atlascloud.ai/docs/models/audio
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiV1ModelPredictionIdResponse'
+      x-evidence:
+        kind: documentation
+  /api/v1/model/{modelid}:
+    post:
+      operationId: post_api_v1_model_modelid
+      tags:
+      - Api
+      summary: POST /api/v1/model/calculate
+      x-source: https://www.atlascloud.ai/docs/billing/model-billing
+      parameters:
+      - name: modelid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostApiV1ModelModelidRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiV1ModelModelidResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X POST \"https://api.atlascloud.ai/api/v1/model/calculate\"  -H \"Authorization: Bearer your-api-key\"  -H \"Content-Type: application/json\"  -d '{ \n \"model\": \"bytedance/seedance-2.0/text-to-video\", \n \"prompt\": \"A hummingbird hovering over a flower, macro shot\", \n \"resolution\": \"1080p\", \n \"duration\": 5 \n }' \n The response data object contains: \n Field Description price The amount you would be cha"
+        collapsed_from: 5 example path(s) differing only at modelId
+  /api/v1/webhooks/jwks.json:
+    get:
+      operationId: get_api_v1_webhooks_jwks_json
+      tags:
+      - Api
+      summary: Fetch the public JWKS endpoint for Ed25519 webhook signature verification.
+      x-source: https://www.atlascloud.ai/docs/webhooks
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiV1WebhooksJwksJsonResponse'
+      x-evidence:
+        kind: documentation
+  /chat/completions:
+    post:
+      operationId: post_chat_completions
+      tags:
+      - Chat
+      summary: Create chat completions
+      description: The LLM API supports both streaming and non-streaming modes, fully compatible with the OpenAI ChatCompletion format.
+      x-source: https://www.atlascloud.ai/docs/models/llm
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostChatCompletionsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostChatCompletionsResponse'
+      x-evidence:
+        kind: documentation
+  /v1/chat/completions:
+    post:
+      operationId: post_v1_chat_completions
+      tags:
+      - Chat
+      summary: POST /v1/chat/completions
+      x-source: https://www.atlascloud.ai/docs/models/llm
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1ChatCompletionsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl https://api.atlascloud.ai/v1/chat/completions  -H \"Authorization: Bearer your-api-key\"  -H \"Content-Type: application/json\"  -d '{ \n \"model\": \"deepseek-v3\", \n \"messages\": [ \n {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"}, \n {\"role\": \"user\", \"content\": \"Explain quantum computing in simple terms.\"} \n ], \n \"temperature\": 0.7, \n \"max_tokens\": 1024 \n }' \n Common Parameters \n Parame"
+  /v1/images/generations:
+    post:
+      operationId: post_v1_images_generations
+      tags:
+      - Images
+      summary: POST /v1/images/generations
+      x-source: https://www.atlascloud.ai/docs/llm-protocols
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1ImagesGenerationsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl https://api.atlascloud.ai/v1/images/generations  -H \"Authorization: Bearer $ATLASCLOUD_API_KEY \"  -H \"Content-Type: application/json\"  -d '{\"model\": \"MODEL_ID\", \"prompt\": \"a cat\", \"n\": 1, \"size\": \"1024x1024\"}' \n /v1/images/edits takes multipart/form-data . Only a small number of models advertise this protocol. \n This is a different path from the main image pipeline. Most image models — and al"
+  /v1/messages/count_tokens:
+    post:
+      operationId: post_v1_messages_count_tokens
+      tags:
+      - Messages
+      summary: Count tokens for messages using the Anthropic Messages protocol.
+      x-source: https://www.atlascloud.ai/docs/llm-protocols
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1MessagesCountTokensRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1MessagesCountTokensResponse'
+      x-evidence:
+        kind: documentation
+  /v1beta/models/{model}{generateContent}:
+    post:
+      operationId: post_v1beta_models_model_generateContent
+      tags:
+      - V1Beta
+      summary: Generate content using the Google Gemini protocol.
+      x-source: https://www.atlascloud.ai/docs/llm-protocols
+      parameters:
+      - name: model
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: generateContent
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1BetaModelsModelGeneratecontentRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1BetaModelsModelGeneratecontentResponse'
+      x-evidence:
+        kind: documentation
+  /public/v1/balance:
+    get:
+      operationId: get_public_v1_balance
+      tags:
+      - Balance
+      summary: Current account balance and credit grant summary
+      x-source: https://www.atlascloud.ai/docs/public-api
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBalanceResponse'
+      x-evidence:
+        kind: documentation
+      x-path-note: docs list this path relative to base https://api.atlascloud.ai/public/v1; full path written here
+  /public/v1/model-costs:
+    get:
+      operationId: get_public_v1_model_costs
+      tags:
+      - Model Costs
+      summary: Daily model cost buckets
+      x-source: https://www.atlascloud.ai/docs/public-api
+      parameters:
+      - name: start_date
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Inclusive UTC start date in YYYY-MM-DD format
+      - name: end_date
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Exclusive UTC end date in YYYY-MM-DD format; range can cover at most 180 days
+      - name: scope
+        in: query
+        required: false
+        schema:
+          type: string
+        description: self or account; defaults to self
+      - name: group_by[]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Optional grouping. Supported sets: model_type, model, api_key, or model plus api_key'
+      - name: model_types[]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Repeat with text, image, or video
+      - name: model_ids[]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by model IDs; up to 100 values
+      - name: api_key_ids[]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by ak_... API key public IDs; up to 100 values
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Rows per page, 1 to 1000; defaults to 100
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Opaque pagination cursor from next_page
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetModelCostsResponse'
+      x-evidence:
+        kind: documentation
+      x-path-note: docs list this path relative to base https://api.atlascloud.ai/public/v1; full path written here
+  /public/v1/model-usage:
+    get:
+      operationId: get_public_v1_model_usage
+      tags:
+      - Model Usage
+      summary: Daily model usage buckets
+      x-source: https://www.atlascloud.ai/docs/public-api
+      parameters:
+      - name: start_date
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Inclusive UTC start date in YYYY-MM-DD format
+      - name: end_date
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Exclusive UTC end date in YYYY-MM-DD format; range can cover at most 180 days
+      - name: scope
+        in: query
+        required: false
+        schema:
+          type: string
+        description: self or account; defaults to self
+      - name: group_by[]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Optional grouping. Supported sets: model_type, model, api_key, or model plus api_key'
+      - name: model_types[]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Repeat with text, image, or video
+      - name: model_ids[]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by model IDs; up to 100 values
+      - name: api_key_ids[]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by ak_... API key public IDs; up to 100 values
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Rows per page, 1 to 1000; defaults to 100
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Opaque pagination cursor from next_page
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetModelUsageResponse'
+      x-evidence:
+        kind: documentation
+      x-path-note: docs list this path relative to base https://api.atlascloud.ai/public/v1; full path written here
+  /v1/completions:
+    post:
+      operationId: post_v1_completions
+      tags:
+      - Api
+      summary: Create completions using the OpenAI Completions protocol for legacy text completion.
+      x-source: https://www.atlascloud.ai/docs/llm-protocols
+      parameters:
+      - name: v1id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1V1IdRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1V1IdResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 3 example path(s) differing only at v1Id
+      x-path-note: generator templated this path; the docs name /v1/completions
+components:
+  schemas:
+    GetApiV1ModelPredictionIdResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+        data:
+          type: object
+        data.id:
+          type: string
+        data.status:
+          type: string
+        data.outputs:
+          type: array
+    PostApiV1ModelModelidRequest:
+      type: object
+      properties:
+        model:
+          type: string
+        prompt:
+          type: string
+        resolution:
+          type: string
+        duration:
+          type: integer
+    PostApiV1ModelModelidResponse:
+      type: object
+      properties:
+        Authorization:
+          type: string
+    GetApiV1WebhooksJwksJsonResponse:
+      type: object
+      properties:
+        keys:
+          type: array
+          description: Array of JWK public keys for Ed25519 signature verification
+        kty:
+          type: string
+          description: Key type (OKP for Ed25519)
+        crv:
+          type: string
+          description: Curve (Ed25519)
+        x:
+          type: string
+          description: base64url-encoded Ed25519 public key
+        use:
+          type: string
+          description: Key usage (sig)
+        alg:
+          type: string
+          description: Algorithm (EdDSA)
+        kid:
+          type: string
+          description: Key ID for signature header correlation
+    GetBalanceResponse:
+      type: object
+      properties:
+        value:
+          type: string
+        currency:
+          type: string
+    PostChatCompletionsRequest:
+      type: object
+      properties:
+        model:
+          type: string
+          description: Model identifier (e.g., deepseek-v3, qwen-turbo)
+        messages:
+          type: array
+          description: Conversation messages with role and content
+        temperature:
+          type: number
+          description: Controls randomness (0.0 - 2.0, default varies by model)
+        max_tokens:
+          type: number
+          description: Maximum tokens in the response
+        stream:
+          type: boolean
+          description: Enable streaming output
+        top_p:
+          type: number
+          description: Nucleus sampling parameter
+      required:
+      - model
+      - messages
+    PostChatCompletionsResponse:
+      type: object
+      properties:
+        choices:
+          type: array
+          description: Array of completion choices
+        message:
+          type: object
+          description: The message object containing role and content
+    GetModelCostsResponse:
+      type: object
+      properties:
+        has_more:
+          type: boolean
+        next_page:
+          type: string
+    GetModelUsageResponse:
+      type: object
+      properties:
+        has_more:
+          type: boolean
+        next_page:
+          type: string
+    PostModelModelidRequest:
+      type: object
+      properties:
+        model:
+          type: string
+          description: The model to use for image generation
+        prompt:
+          type: string
+          description: The text prompt for image generation
+      required:
+      - model
+      - prompt
+    PostModelModelidResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          description: Response data containing the prediction ID
+        id:
+          type: string
+          description: The prediction ID for tracking the generation task
+    GetPublicV1V1IdResponse:
+      type: object
+      properties:
+        value:
+          type: string
+        currency:
+          type: string
+    PostV1Request:
+      type: object
+      properties:
+        model:
+          type: string
+        prompt:
+          type: string
+    PostV1Response:
+      type: object
+      properties:
+        role:
+          type: string
+        content:
+          type: string
+    PostV1ChatCompletionsRequest:
+      type: object
+      properties:
+        model:
+          type: string
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              role:
+                type: string
+              content:
+                type: string
+        temperature:
+          type: number
+        max_tokens:
+          type: integer
+    PostV1ImagesGenerationsRequest:
+      type: object
+      properties:
+        model:
+          type: string
+        prompt:
+          type: string
+        n:
+          type: integer
+        size:
+          type: string
+    PostV1MessagesCountTokensRequest:
+      type: object
+      properties:
+        model:
+          type: string
+        messages:
+          type: array
+      required:
+      - model
+      - messages
+    PostV1MessagesCountTokensResponse:
+      type: object
+      properties:
+        input_tokens:
+          type: integer
+    PostV1V1IdRequest:
+      type: object
+      properties:
+        model:
+          type: string
+        max_tokens:
+          type: integer
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              role:
+                type: string
+              content:
+                type: string
+    PostV1V1IdResponse:
+      type: object
+      properties:
+        model:
+          type: string
+        input:
+          type: array
+          items:
+            type: object
+            properties:
+              role:
+                type: string
+              content:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                    text:
+                      type: string
+        max_output_tokens:
+          type: integer
+    PostV1BetaModelsModelGeneratecontentRequest:
+      type: object
+      properties:
+        contents:
+          type: array
+        generationConfig:
+          type: object
+        systemInstruction:
+          type: string
+        tools:
+          type: array
+      required:
+      - contents
+    PostV1BetaModelsModelGeneratecontentResponse:
+      type: object
+      properties:
+        candidates:
+          type: array
+        usageMetadata:
+          type: object
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security:
+- bearer: []
+tags:
+- name: Api
+- name: Atlascloudai
+- name: Balance
+- name: Chat
+- name: Images
+- name: Messages
+- name: Model
+- name: Model Costs
+- name: Model Usage
+- name: Public
+- name: V1Beta

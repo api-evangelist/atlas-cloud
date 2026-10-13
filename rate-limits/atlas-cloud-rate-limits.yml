@@ -1,0 +1,17 @@
+name: Atlas Cloud rate limits
+generated: '2026-10-13'
+method: searched
+source: https://www.atlascloud.ai/docs/errors
+limit_count: 0
+note: Docs state limits apply per account and per model and return 429, but publish no numeric limits. LLM and media endpoints return no rate-limit headers; /public/v1 429s include Retry-After.
+headers:
+- Retry-After
+status_on_exhaustion: 429
+limits:
+- name: Per account and per model
+  scope: per-account, per-model
+  limit_text: Rate limits apply per account and per model. Exceeding one returns 429 .
+- name: Billing Public API
+  scope: per-api-key
+  endpoint: /public/v1
+  limit_text: 'The /public/v1 billing endpoints are the exception: their 429 responses do include Retry-After .'

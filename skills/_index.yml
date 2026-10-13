@@ -1,0 +1,18 @@
+generated: '2026-10-13'
+method: generated
+generator: finish-artifacts.py (index from skill frontmatter)
+source: skills/*.md frontmatter; every operationId checked against openapi/
+skills:
+- file: skills/atlas-cloud-audit-spend.md
+  name: atlas-cloud-audit-spend
+  api: atlas-cloud:atlas-cloud-billing-public-api
+  operations:
+  - get_public_v1_balance
+  - get_public_v1_model_usage
+  - get_public_v1_model_costs
+- file: skills/atlas-cloud-generate-media.md
+  name: atlas-cloud-generate-media
+  api: atlas-cloud:atlas-cloud-model-api
+  operations:
+  - post_api_v1_model_modelid
+  - get_api_v1_model_prediction_id

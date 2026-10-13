@@ -1,0 +1,26 @@
+name: Atlas Cloud pricing
+generated: '2026-10-13'
+method: searched
+source: https://www.atlascloud.ai/docs/models/price
+audience: developer-api
+pricing_basis: usage-other
+published: false
+delivery:
+  delivery: managed
+note: Per-model prices live on the dynamic pricing page https://www.atlascloud.ai/pricing; the docs page states pay-as-you-go billing rules and says developer subscription plans are offline.
+plans:
+- name: Pay-as-you-go
+  description: Transparent pay-as-you-go pricing. No minimum commitments, no hidden fees.
+  features:
+  - Per million tokens
+  - Per generation
+  - 'Minimum top-up: $25'
+  - Credits expire 365 days from purchase
+  limits: []
+  price_text: pay-as-you-go
+- name: Volume discounts
+  description: We offer competitive rates for high-volume customers.
+  price: Contact sales
+  price_text: Contact sales
+  features: []
+  limits: []

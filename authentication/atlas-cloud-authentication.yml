@@ -1,0 +1,14 @@
+name: Atlas Cloud authentication
+generated: '2026-10-13'
+method: searched
+source: https://www.atlascloud.ai/docs/api-keys
+docs: https://www.atlascloud.ai/docs/api-keys
+schemes:
+- type: http
+  scheme: bearer
+  name: API key
+  in: header
+  header: Authorization
+  description: Include your API key in the Authorization header of every API request;
+    keys are shown once at creation and can be rotated in the console.
+rbac: https://www.atlascloud.ai/docs/account/rbac

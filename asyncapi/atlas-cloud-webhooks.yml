@@ -1,0 +1,21 @@
+name: Atlas Cloud webhooks
+generated: '2026-10-13'
+method: searched
+source: https://www.atlascloud.ai/docs/webhooks
+events:
+- name: video.task.terminal
+- name: image.task.terminal
+- name: audio.task.terminal
+delivery:
+  method: POST
+  content_type: application/json
+  headers:
+  - X-AtlasCloud-Webhook-Event
+  - X-AtlasCloud-Webhook-Timestamp
+  - X-AtlasCloud-Webhook-Signature
+  - X-AtlasCloud-Webhook-Signature-Ed25519
+  - X-AtlasCloud-Webhook-Key-Id
+  signature: HMAC-SHA256 of raw body (legacy) and Ed25519 over <timestamp>.<raw_body>, keys at https://api.atlascloud.ai/api/v1/webhooks/jwks.json
+  retries: exponential backoff (roughly 10s -> 20s -> 40s), capped at about 30 minutes, up to ~10 attempts
+  ack: any 2xx
+registration: webhook_url field on the generation request

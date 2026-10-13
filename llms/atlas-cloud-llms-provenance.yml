@@ -1,0 +1,6 @@
+generated: '2026-10-13'
+method: probed
+generator: harvest-llms.py
+source: https://www.atlascloud.ai/llms.txt
+bytes: 4223
+note: saved verbatim; the provider's own document

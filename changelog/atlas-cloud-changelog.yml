@@ -1,0 +1,25 @@
+name: Atlas Cloud changelog
+generated: '2026-10-13'
+method: searched
+source: https://www.atlascloud.ai/docs/changelog
+scheme: monthly (YYYY-MM)
+entries:
+- version: 2026-08
+  date: 2026-08
+  breaking: false
+  highlights:
+  - API keys are revealed once
+  - Per-model protocol support is published
+  - Audio input for multimodal LLMs
+  - Auto top-up improvements
+  - Error details in history
+- version: 2026-07
+  date: 2026-07
+  breaking: false
+  highlights:
+  - Webhook callbacks for audio jobs
+  - Spend breakdown by API key and member
+  - Multiple teams
+  - Time-of-use pricing
+  - Per-model sampling parameters
+  - Cash and bonus balance shown separately

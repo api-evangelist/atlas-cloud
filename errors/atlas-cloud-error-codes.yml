@@ -1,0 +1,39 @@
+name: Atlas Cloud errors
+generated: '2026-10-13'
+method: searched
+source: https://www.atlascloud.ai/docs/errors
+format: custom-json
+envelope:
+  code: integer
+  msg: string
+  request_id: string
+  data: object|null
+problems:
+- status: 400
+  title: Bad request
+- status: 401
+  title: Unauthorized
+- status: 402
+  title: Insufficient balance
+- status: 403
+  title: Forbidden
+- status: 404
+  title: Not found
+- status: 429
+  title: Rate limit reached
+- status: 451
+  title: Unavailable for legal reasons
+- status: 500
+  title: Internal error
+- status: 503
+  title: Temporarily unavailable
+- status: 504
+  title: Gateway timeout
+job_error_codes:
+- code: 1039
+  meaning: input was rejected by content moderation
+retryable:
+- 429
+- 500
+- 503
+- 504

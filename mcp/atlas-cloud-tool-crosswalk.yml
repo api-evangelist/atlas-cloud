@@ -1,0 +1,79 @@
+name: Atlas Cloud tool crosswalk
+generated: '2026-10-13'
+method: derived
+source: https://www.atlascloud.ai/docs/mcp-server
+surfaces:
+  openapi: openapi/_ae-authored/atlas-cloud-openapi-generated.yml (generated from docs)
+  mcp: 'local stdio: npx -y atlascloud-mcp'
+crosswalk:
+- tool: atlas_generate_image
+  category: generation
+  rest:
+  - post_api_v1_model_modelid
+  binding: by-name-and-docs
+  confidence: high
+- tool: atlas_generate_video
+  category: generation
+  rest:
+  - post_api_v1_model_modelid
+  binding: by-name-and-docs
+  confidence: high
+- tool: atlas_generate_audio
+  category: generation
+  rest:
+  - post_api_v1_model_modelid
+  binding: by-name-and-docs
+  confidence: high
+- tool: atlas_quick_generate
+  category: generation
+  rest:
+  - post_api_v1_model_modelid
+  binding: by-name-and-docs
+  confidence: medium
+- tool: atlas_upload_media
+  category: generation
+  rest:
+  - post_api_v1_model_modelid
+  binding: by-name-and-docs
+  confidence: medium
+- tool: atlas_chat
+  category: chat
+  rest:
+  - post_v1_chat_completions
+  binding: by-name-and-docs
+  confidence: high
+- tool: atlas_get_prediction
+  category: tasks
+  rest:
+  - get_api_v1_model_prediction_id
+  binding: by-name-and-docs
+  confidence: high
+- tool: atlas_get_balance
+  category: billing
+  rest:
+  - get_public_v1_balance
+  binding: by-name-and-docs
+  confidence: high
+- tool: atlas_get_model_usage
+  category: billing
+  rest:
+  - get_public_v1_model_usage
+  binding: by-name-and-docs
+  confidence: high
+- tool: atlas_get_model_costs
+  category: billing
+  rest:
+  - get_public_v1_model_costs
+  binding: by-name-and-docs
+  confidence: high
+mcp_only:
+- tool: atlas_search_docs
+  reason: docs/model catalog lookup; no REST operation in the docs-generated contract
+- tool: atlas_list_models
+  reason: docs/model catalog lookup; no REST operation in the docs-generated contract
+- tool: atlas_get_model_info
+  reason: docs/model catalog lookup; no REST operation in the docs-generated contract
+coverage:
+  tools: 13
+  mapped: 10
+  mcp_only: 3

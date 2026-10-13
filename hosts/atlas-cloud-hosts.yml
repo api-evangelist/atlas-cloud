@@ -1,0 +1,90 @@
+generated: '2026-10-13'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 5
+  own: 4
+  other_domain: 0
+  platform: 1
+  roles:
+  - api
+  - docs
+  - other
+  - source
+  - website
+hosts:
+- host: api.atlascloud.ai
+  found_by:
+  - apis[]
+  - contract-discovery
+  types: []
+  serves:
+  - api
+  registrable_domain: atlascloud.ai
+  role: api
+  relation: own
+- host: console.atlascloud.ai
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: atlascloud.ai
+  role: other
+  relation: own
+- host: docs.atlascloud.ai
+  found_by:
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  types: []
+  serves:
+  - docs
+  registrable_domain: atlascloud.ai
+  role: docs
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: www.atlascloud.ai
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Sandbox
+  - Website
+  - DeveloperPortal
+  - Documentation
+  - APIReference
+  - GettingStarted
+  - Support
+  - Blog
+  - Pricing
+  - Login
+  - PrivacyPolicy
+  - ChangeLog
+  - Newsroom
+  - TermsOfService
+  serves:
+  - docs
+  - cdn
+  vendor: cloudflare
+  registrable_domain: atlascloud.ai
+  role: website
+  relation: own

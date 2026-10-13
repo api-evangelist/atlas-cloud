@@ -1,0 +1,33 @@
+name: Atlas Cloud conventions
+generated: '2026-10-13'
+method: searched
+source: https://www.atlascloud.ai/docs/errors
+authentication:
+  style: bearer API key in Authorization header
+  docs: https://www.atlascloud.ai/docs/api-keys
+idempotency:
+  coverage: none
+  note: No idempotency key is documented; docs warn a retried generation submission can create and bill a second job and recommend async submit + polling.
+  source: https://www.atlascloud.ai/docs/errors
+pagination:
+  style: limit (1-1000, default 100) on /public/v1 usage and cost queries
+  docs: https://www.atlascloud.ai/docs/public-api
+async:
+  pattern: submit generation, poll GET /api/v1/model/prediction/{id} or receive a signed webhook
+  docs: https://www.atlascloud.ai/docs/predictions
+request_id:
+  field: request_id
+  in: error envelope
+data_retention:
+  header: X-AtlasCloud-Request-Retention-Hours
+  range: 0-336
+  docs: https://www.atlascloud.ai/docs/data-retention
+versioning:
+  style: path (/v1, /api/v1, /public/v1); monthly changelog
+  docs: https://www.atlascloud.ai/docs/changelog
+errors: errors/atlas-cloud-error-codes.yml
+rate_limits: rate-limits/atlas-cloud-rate-limits.yml
+reversibility:
+  coverage: none
+  note: 'No cancel, refund or undo operation is documented for generation tasks. Docs: failed tasks are automatically not charged; purchases are final and non-refundable.'
+  source: https://www.atlascloud.ai/docs/billing/refunds
