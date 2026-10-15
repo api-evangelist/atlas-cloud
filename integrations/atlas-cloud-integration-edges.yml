@@ -9,6 +9,7 @@ checked:
 - https://composio.dev/toolkits/atlas-cloud
 - https://monid.ai/tools/atlas-cloud
 - https://n8n.io/integrations/atlas-cloud/
+- https://registry.npmjs.org/-/v1/search?text=keywords:n8n-community-node-package
 - https://www.atlascloud.ai/docs/integrations
 - https://zapier.com/apps/atlas-cloud/integrations
 summary: Docs integrations page names provider-built ComfyUI nodes and n8n community nodes (both in github.com/AtlasCloudAI);
@@ -31,4 +32,31 @@ edges:
   direction: provider-built
   category: automation
   operations: []
+- partner_name: n8n
+  partner: n8n
+  partner_match: aggregator
+  type: marketplace
+  marketplace: n8n-community
+  channel: open-source-node
+  relationship: ipaas-bridge
+  direction: provider-built
+  evidence: https://www.npmjs.com/package/n8n-nodes-atlascloud
+  category: null
+  contract_reference:
+    register: n8n community nodes (npm keyword n8n-community-node-package)
+    spec_file: null
+    role: ipaas-connector:n8n-community
+    registered_name: n8n-nodes-atlascloud
+    matched_domain: atlascloud.ai
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    package: n8n-nodes-atlascloud
+    version: 0.1.1
+    published: '2026-01-15T08:56:11.854Z'
+    matched_on: publisher-email
+    builder: provider (package published from the provider's own domain)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
 templates: []
