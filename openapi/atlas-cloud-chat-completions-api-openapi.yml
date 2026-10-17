@@ -1,0 +1,150 @@
+openapi: 3.2.0
+info:
+  title: Atlas Cloud Chat API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 17 operation(s) read from 25 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Atlas Cloud has published no machine-readable contract that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 16
+    documentation: 1
+    pages-with-code: 21
+    pages-read: 25
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://www.atlascloud.ai/docs/public-api
+  - https://www.atlascloud.ai/docs/api-keys
+  - https://www.atlascloud.ai/docs/webhooks
+  - https://www.atlascloud.ai/docs/models/llm
+  - https://www.atlascloud.ai/docs/get-started
+  - https://www.atlascloud.ai/docs/llm-protocols
+  - https://www.atlascloud.ai/docs/tutorials/text-to-image
+  - https://www.atlascloud.ai/docs/tutorials/narrated-video
+  - https://www.atlascloud.ai/docs/cli
+  - https://www.atlascloud.ai/docs/models/get-start
+  - https://www.atlascloud.ai/docs/models/image
+  - https://www.atlascloud.ai/docs/models/video
+  - https://www.atlascloud.ai/docs/models/audio
+  - https://www.atlascloud.ai/docs/how-it-works
+  - https://www.atlascloud.ai/docs/predictions
+  - https://www.atlascloud.ai/docs/upload-files
+  - https://www.atlascloud.ai/docs/data-retention
+  - https://www.atlascloud.ai/docs/skills
+  - https://www.atlascloud.ai/docs/createChatCompletion
+  - https://www.atlascloud.ai/docs/billing/model-billing
+  - https://www.atlascloud.ai/docs/billing/credits
+  - https://www.atlascloud.ai/docs/faq
+  - https://www.atlascloud.ai/docs/public-api/balance
+  - https://www.atlascloud.ai/docs/public-api/model-usage
+  - https://www.atlascloud.ai/docs/public-api/model-costs
+  x-pruned: '2026-10-13: removed 4 non-API paths the generator kept (CLI install.sh, bare /v1, a templated example of /public/v1/balance, a duplicate of /api/v1/model/{modelid}); re-prefixed public billing paths'
+servers:
+- url: https://api.atlascloud.ai
+security:
+- bearer: []
+tags:
+- name: Chat Completions
+paths:
+  /chat/completions:
+    post:
+      operationId: post_chat_completions
+      tags:
+      - Chat Completions
+      summary: Create chat completions
+      description: The LLM API supports both streaming and non-streaming modes, fully compatible with the OpenAI ChatCompletion format.
+      x-source: https://www.atlascloud.ai/docs/models/llm
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostChatCompletionsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostChatCompletionsResponse'
+      x-evidence:
+        kind: documentation
+  /v1/chat/completions:
+    post:
+      operationId: post_v1_chat_completions
+      tags:
+      - Chat Completions
+      summary: POST /v1/chat/completions
+      x-source: https://www.atlascloud.ai/docs/models/llm
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1ChatCompletionsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl https://api.atlascloud.ai/v1/chat/completions  -H \"Authorization: Bearer your-api-key\"  -H \"Content-Type: application/json\"  -d '{ \n \"model\": \"deepseek-v3\", \n \"messages\": [ \n {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"}, \n {\"role\": \"user\", \"content\": \"Explain quantum computing in simple terms.\"} \n ], \n \"temperature\": 0.7, \n \"max_tokens\": 1024 \n }' \n Common Parameters \n Parame"
+components:
+  schemas:
+    PostV1ChatCompletionsRequest:
+      type: object
+      properties:
+        model:
+          type: string
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              role:
+                type: string
+              content:
+                type: string
+        temperature:
+          type: number
+        max_tokens:
+          type: integer
+    PostChatCompletionsRequest:
+      type: object
+      properties:
+        model:
+          type: string
+          description: Model identifier (e.g., deepseek-v3, qwen-turbo)
+        messages:
+          type: array
+          description: Conversation messages with role and content
+        temperature:
+          type: number
+          description: Controls randomness (0.0 - 2.0, default varies by model)
+        max_tokens:
+          type: number
+          description: Maximum tokens in the response
+        stream:
+          type: boolean
+          description: Enable streaming output
+        top_p:
+          type: number
+          description: Nucleus sampling parameter
+      required:
+      - model
+      - messages
+    PostChatCompletionsResponse:
+      type: object
+      properties:
+        choices:
+          type: array
+          description: Array of completion choices
+        message:
+          type: object
+          description: The message object containing role and content
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

@@ -1,0 +1,135 @@
+openapi: 3.2.0
+info:
+  title: Atlas Cloud Model Costs API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 17 operation(s) read from 25 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Atlas Cloud has published no machine-readable contract that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 16
+    documentation: 1
+    pages-with-code: 21
+    pages-read: 25
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://www.atlascloud.ai/docs/public-api
+  - https://www.atlascloud.ai/docs/api-keys
+  - https://www.atlascloud.ai/docs/webhooks
+  - https://www.atlascloud.ai/docs/models/llm
+  - https://www.atlascloud.ai/docs/get-started
+  - https://www.atlascloud.ai/docs/llm-protocols
+  - https://www.atlascloud.ai/docs/tutorials/text-to-image
+  - https://www.atlascloud.ai/docs/tutorials/narrated-video
+  - https://www.atlascloud.ai/docs/cli
+  - https://www.atlascloud.ai/docs/models/get-start
+  - https://www.atlascloud.ai/docs/models/image
+  - https://www.atlascloud.ai/docs/models/video
+  - https://www.atlascloud.ai/docs/models/audio
+  - https://www.atlascloud.ai/docs/how-it-works
+  - https://www.atlascloud.ai/docs/predictions
+  - https://www.atlascloud.ai/docs/upload-files
+  - https://www.atlascloud.ai/docs/data-retention
+  - https://www.atlascloud.ai/docs/skills
+  - https://www.atlascloud.ai/docs/createChatCompletion
+  - https://www.atlascloud.ai/docs/billing/model-billing
+  - https://www.atlascloud.ai/docs/billing/credits
+  - https://www.atlascloud.ai/docs/faq
+  - https://www.atlascloud.ai/docs/public-api/balance
+  - https://www.atlascloud.ai/docs/public-api/model-usage
+  - https://www.atlascloud.ai/docs/public-api/model-costs
+  x-pruned: '2026-10-13: removed 4 non-API paths the generator kept (CLI install.sh, bare /v1, a templated example of /public/v1/balance, a duplicate of /api/v1/model/{modelid}); re-prefixed public billing paths'
+servers:
+- url: https://api.atlascloud.ai
+security:
+- bearer: []
+tags:
+- name: Model Costs
+paths:
+  /public/v1/model-costs:
+    get:
+      operationId: get_public_v1_model_costs
+      tags:
+      - Model Costs
+      summary: Daily model cost buckets
+      x-source: https://www.atlascloud.ai/docs/public-api
+      parameters:
+      - name: start_date
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Inclusive UTC start date in YYYY-MM-DD format
+      - name: end_date
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Exclusive UTC end date in YYYY-MM-DD format; range can cover at most 180 days
+      - name: scope
+        in: query
+        required: false
+        schema:
+          type: string
+        description: self or account; defaults to self
+      - name: group_by[]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Optional grouping. Supported sets: model_type, model, api_key, or model plus api_key'
+      - name: model_types[]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Repeat with text, image, or video
+      - name: model_ids[]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by model IDs; up to 100 values
+      - name: api_key_ids[]
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by ak_... API key public IDs; up to 100 values
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Rows per page, 1 to 1000; defaults to 100
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Opaque pagination cursor from next_page
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetModelCostsResponse'
+      x-evidence:
+        kind: documentation
+      x-path-note: docs list this path relative to base https://api.atlascloud.ai/public/v1; full path written here
+components:
+  schemas:
+    GetModelCostsResponse:
+      type: object
+      properties:
+        has_more:
+          type: boolean
+        next_page:
+          type: string
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

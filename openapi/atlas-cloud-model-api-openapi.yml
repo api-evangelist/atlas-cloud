@@ -1,0 +1,152 @@
+openapi: 3.2.0
+info:
+  title: Atlas Cloud Model API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 17 operation(s) read from 25 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Atlas Cloud has published no machine-readable contract that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 16
+    documentation: 1
+    pages-with-code: 21
+    pages-read: 25
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://www.atlascloud.ai/docs/public-api
+  - https://www.atlascloud.ai/docs/api-keys
+  - https://www.atlascloud.ai/docs/webhooks
+  - https://www.atlascloud.ai/docs/models/llm
+  - https://www.atlascloud.ai/docs/get-started
+  - https://www.atlascloud.ai/docs/llm-protocols
+  - https://www.atlascloud.ai/docs/tutorials/text-to-image
+  - https://www.atlascloud.ai/docs/tutorials/narrated-video
+  - https://www.atlascloud.ai/docs/cli
+  - https://www.atlascloud.ai/docs/models/get-start
+  - https://www.atlascloud.ai/docs/models/image
+  - https://www.atlascloud.ai/docs/models/video
+  - https://www.atlascloud.ai/docs/models/audio
+  - https://www.atlascloud.ai/docs/how-it-works
+  - https://www.atlascloud.ai/docs/predictions
+  - https://www.atlascloud.ai/docs/upload-files
+  - https://www.atlascloud.ai/docs/data-retention
+  - https://www.atlascloud.ai/docs/skills
+  - https://www.atlascloud.ai/docs/createChatCompletion
+  - https://www.atlascloud.ai/docs/billing/model-billing
+  - https://www.atlascloud.ai/docs/billing/credits
+  - https://www.atlascloud.ai/docs/faq
+  - https://www.atlascloud.ai/docs/public-api/balance
+  - https://www.atlascloud.ai/docs/public-api/model-usage
+  - https://www.atlascloud.ai/docs/public-api/model-costs
+  x-pruned: '2026-10-13: removed 4 non-API paths the generator kept (CLI install.sh, bare /v1, a templated example of /public/v1/balance, a duplicate of /api/v1/model/{modelid}); re-prefixed public billing paths'
+servers:
+- url: https://api.atlascloud.ai
+security:
+- bearer: []
+tags:
+- name: Model
+paths:
+  /api/v1/model/prediction:
+    get:
+      operationId: get_api_v1_model_prediction
+      tags:
+      - Model
+      summary: GET /api/v1/model/prediction
+      x-source: https://www.atlascloud.ai/docs/tutorials/text-to-image
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -s \"https://api.atlascloud.ai/api/v1/model/prediction/ $PREDICTION_ID \"  -H \"Authorization: Bearer $ATLASCLOUD_API_KEY \" ) \n STATUS = $( echo $RESULT | jq -r '.data.status' ) \n echo \"Status: $STATUS \" \n if [ \" $STATUS \" = \"completed\" ]; then \n echo $RESULT | jq -r '.data.outputs[0]' \n break \n elif [ \" $STATUS \" = \"failed\" ]; then \n echo \"Failed: $( echo $RESULT | jq -r '.data.error')\" \n break"
+  /api/v1/model/prediction/{id}:
+    get:
+      operationId: get_api_v1_model_prediction_id
+      tags:
+      - Model
+      summary: Poll for the result of an audio generation job until status reaches a terminal…
+      x-source: https://www.atlascloud.ai/docs/models/audio
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiV1ModelPredictionIdResponse'
+      x-evidence:
+        kind: documentation
+  /api/v1/model/{modelid}:
+    post:
+      operationId: post_api_v1_model_modelid
+      tags:
+      - Model
+      summary: POST /api/v1/model/calculate
+      x-source: https://www.atlascloud.ai/docs/billing/model-billing
+      parameters:
+      - name: modelid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostApiV1ModelModelidRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiV1ModelModelidResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X POST \"https://api.atlascloud.ai/api/v1/model/calculate\"  -H \"Authorization: Bearer your-api-key\"  -H \"Content-Type: application/json\"  -d '{ \n \"model\": \"bytedance/seedance-2.0/text-to-video\", \n \"prompt\": \"A hummingbird hovering over a flower, macro shot\", \n \"resolution\": \"1080p\", \n \"duration\": 5 \n }' \n The response data object contains: \n Field Description price The amount you would be cha"
+        collapsed_from: 5 example path(s) differing only at modelId
+components:
+  schemas:
+    PostApiV1ModelModelidRequest:
+      type: object
+      properties:
+        model:
+          type: string
+        prompt:
+          type: string
+        resolution:
+          type: string
+        duration:
+          type: integer
+    PostApiV1ModelModelidResponse:
+      type: object
+      properties:
+        Authorization:
+          type: string
+    GetApiV1ModelPredictionIdResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+        data:
+          type: object
+        data.id:
+          type: string
+        data.status:
+          type: string
+        data.outputs:
+          type: array
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

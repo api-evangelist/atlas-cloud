@@ -1,0 +1,34 @@
+{
+  "provider": "atlas-cloud",
+  "sources": [
+    "_ae-authored/atlas-cloud-openapi-generated.yml"
+  ],
+  "outputs": [
+    "atlas-cloud-balance-api-openapi.yml",
+    "atlas-cloud-chat-api-openapi.yml",
+    "atlas-cloud-completions-api-openapi.yml",
+    "atlas-cloud-images-api-openapi.yml",
+    "atlas-cloud-messages-api-openapi.yml",
+    "atlas-cloud-model-api-openapi.yml",
+    "atlas-cloud-model-costs-api-openapi.yml",
+    "atlas-cloud-model-usage-api-openapi.yml",
+    "atlas-cloud-v1beta-api-openapi.yml",
+    "atlas-cloud-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "atlas-cloud-openapi-generated.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "atlas-cloud-openapi-generated.yml: tagged paths GET /api/v1/model/prediction -> Model",
+    "atlas-cloud-openapi-generated.yml: tagged paths GET /api/v1/model/prediction/{id} -> Model",
+    "atlas-cloud-openapi-generated.yml: tagged paths POST /api/v1/model/{modelid} -> Model",
+    "atlas-cloud-openapi-generated.yml: tagged paths GET /api/v1/webhooks/jwks.json -> Webhooks",
+    "atlas-cloud-openapi-generated.yml: tagged paths POST /v1/completions -> Completions",
+    "atlas-cloud-openapi-generated.yml: declared missing tag: Completions",
+    "atlas-cloud-openapi-generated.yml: declared missing tag: Webhooks",
+    "apis.yml register: written (+10 apis, 10 total)"
+  ],
+  "skipped": []
+}

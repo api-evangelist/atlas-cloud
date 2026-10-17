@@ -1,0 +1,125 @@
+openapi: 3.2.0
+info:
+  title: Atlas Cloud Completions API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 17 operation(s) read from 25 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Atlas Cloud has published no machine-readable contract that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 16
+    documentation: 1
+    pages-with-code: 21
+    pages-read: 25
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://www.atlascloud.ai/docs/public-api
+  - https://www.atlascloud.ai/docs/api-keys
+  - https://www.atlascloud.ai/docs/webhooks
+  - https://www.atlascloud.ai/docs/models/llm
+  - https://www.atlascloud.ai/docs/get-started
+  - https://www.atlascloud.ai/docs/llm-protocols
+  - https://www.atlascloud.ai/docs/tutorials/text-to-image
+  - https://www.atlascloud.ai/docs/tutorials/narrated-video
+  - https://www.atlascloud.ai/docs/cli
+  - https://www.atlascloud.ai/docs/models/get-start
+  - https://www.atlascloud.ai/docs/models/image
+  - https://www.atlascloud.ai/docs/models/video
+  - https://www.atlascloud.ai/docs/models/audio
+  - https://www.atlascloud.ai/docs/how-it-works
+  - https://www.atlascloud.ai/docs/predictions
+  - https://www.atlascloud.ai/docs/upload-files
+  - https://www.atlascloud.ai/docs/data-retention
+  - https://www.atlascloud.ai/docs/skills
+  - https://www.atlascloud.ai/docs/createChatCompletion
+  - https://www.atlascloud.ai/docs/billing/model-billing
+  - https://www.atlascloud.ai/docs/billing/credits
+  - https://www.atlascloud.ai/docs/faq
+  - https://www.atlascloud.ai/docs/public-api/balance
+  - https://www.atlascloud.ai/docs/public-api/model-usage
+  - https://www.atlascloud.ai/docs/public-api/model-costs
+  x-pruned: '2026-10-13: removed 4 non-API paths the generator kept (CLI install.sh, bare /v1, a templated example of /public/v1/balance, a duplicate of /api/v1/model/{modelid}); re-prefixed public billing paths'
+servers:
+- url: https://api.atlascloud.ai
+security:
+- bearer: []
+tags:
+- name: Completions
+paths:
+  /v1/completions:
+    post:
+      operationId: post_v1_completions
+      tags:
+      - Completions
+      summary: Create completions using the OpenAI Completions protocol for legacy text…
+      x-source: https://www.atlascloud.ai/docs/llm-protocols
+      parameters:
+      - name: v1id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1V1IdRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1V1IdResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 3 example path(s) differing only at v1Id
+      x-path-note: generator templated this path; the docs name /v1/completions
+components:
+  schemas:
+    PostV1V1IdResponse:
+      type: object
+      properties:
+        model:
+          type: string
+        input:
+          type: array
+          items:
+            type: object
+            properties:
+              role:
+                type: string
+              content:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                    text:
+                      type: string
+        max_output_tokens:
+          type: integer
+    PostV1V1IdRequest:
+      type: object
+      properties:
+        model:
+          type: string
+        max_tokens:
+          type: integer
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              role:
+                type: string
+              content:
+                type: string
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

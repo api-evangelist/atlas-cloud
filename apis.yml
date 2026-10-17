@@ -103,19 +103,16 @@ common:
 - type: TermsOfService
   url: https://www.atlascloud.ai/privacy
 apis:
-- aid: atlas-cloud:atlas-cloud-model-api
-  name: Atlas Cloud Model API
-  description: OpenAI-compatible chat completions for hosted LLMs (also Anthropic Messages and Gemini generateContent protocols), plus asynchronous image and video generation, media upload and prediction polling.
+- aid: atlas-cloud:atlas-cloud-balance-api
+  name: Atlas Cloud Balance API
+  description: The Balance API from Atlas Cloud — 1 operation(s) for balance.
   humanURL: https://www.atlascloud.ai/docs/models/overview
   baseURL: https://api.atlascloud.ai
   tags:
-  - LLM
-  - Image Generation
-  - Video Generation
+  - Balance
   properties:
   - type: OpenAPI
-    url: openapi/_ae-authored/atlas-cloud-openapi-generated.yml
-    x-provenance: generated
+    url: openapi/atlas-cloud-balance-api-openapi.yml
   - type: Documentation
     url: https://www.atlascloud.ai/docs/models/overview
   - type: APIReference
@@ -132,21 +129,22 @@ apis:
     url: json-schema/atlas-cloud-post-v1-v1-id-request-schema.json
   - type: JSONSchema
     url: json-schema/atlas-cloud-post-chat-completions-response-schema.json
-  image: https://www.atlascloud.ai/favicon.ico
-- aid: atlas-cloud:atlas-cloud-billing-public-api
-  name: Atlas Cloud Billing Public API
-  description: Read-only API to query account balance, daily model usage and daily model costs.
-  humanURL: https://www.atlascloud.ai/docs/public-api
-  baseURL: https://api.atlascloud.ai/public/v1
-  tags:
-  - Billing
-  - Usage
-  properties:
-  - type: OpenAPI
-    url: openapi/_ae-authored/atlas-cloud-openapi-generated.yml
-    x-provenance: generated
   - type: Documentation
     url: https://www.atlascloud.ai/docs/public-api
+- aid: atlas-cloud:atlas-cloud-completions-api
+  name: Atlas Cloud Completions API
+  description: The Completions API from Atlas Cloud — 1 operation(s) for completions.
+  humanURL: https://www.atlascloud.ai/docs/models/overview
+  baseURL: https://api.atlascloud.ai
+  tags:
+  - Completions
+  properties:
+  - type: OpenAPI
+    url: openapi/atlas-cloud-completions-api-openapi.yml
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/models/overview
+  - type: APIReference
+    url: https://www.atlascloud.ai/docs/openapi-index
   - type: JSONSchema
     url: json-schema/atlas-cloud-post-chat-completions-request-schema.json
   - type: JSONSchema
@@ -159,7 +157,232 @@ apis:
     url: json-schema/atlas-cloud-post-v1-v1-id-request-schema.json
   - type: JSONSchema
     url: json-schema/atlas-cloud-post-chat-completions-response-schema.json
-  image: https://www.atlascloud.ai/favicon.ico
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/public-api
+- aid: atlas-cloud:atlas-cloud-images-api
+  name: Atlas Cloud Images API
+  description: The Images API from Atlas Cloud — 1 operation(s) for images.
+  humanURL: https://www.atlascloud.ai/docs/models/overview
+  baseURL: https://api.atlascloud.ai
+  tags:
+  - Images
+  properties:
+  - type: OpenAPI
+    url: openapi/atlas-cloud-images-api-openapi.yml
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/models/overview
+  - type: APIReference
+    url: https://www.atlascloud.ai/docs/openapi-index
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-get-api-v1-webhooks-jwks-json-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-response-schema.json
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/public-api
+- aid: atlas-cloud:atlas-cloud-messages-api
+  name: Atlas Cloud Messages API
+  description: The Messages API from Atlas Cloud — 1 operation(s) for messages.
+  humanURL: https://www.atlascloud.ai/docs/models/overview
+  baseURL: https://api.atlascloud.ai
+  tags:
+  - Messages
+  properties:
+  - type: OpenAPI
+    url: openapi/atlas-cloud-messages-api-openapi.yml
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/models/overview
+  - type: APIReference
+    url: https://www.atlascloud.ai/docs/openapi-index
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-get-api-v1-webhooks-jwks-json-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-response-schema.json
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/public-api
+- aid: atlas-cloud:atlas-cloud-model-api
+  name: Atlas Cloud Model API
+  description: The Model API from Atlas Cloud — 3 operation(s) for model.
+  humanURL: https://www.atlascloud.ai/docs/models/overview
+  baseURL: https://api.atlascloud.ai
+  tags:
+  - Model
+  properties:
+  - type: OpenAPI
+    url: openapi/atlas-cloud-model-api-openapi.yml
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/models/overview
+  - type: APIReference
+    url: https://www.atlascloud.ai/docs/openapi-index
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-get-api-v1-webhooks-jwks-json-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-response-schema.json
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/public-api
+- aid: atlas-cloud:atlas-cloud-model-costs-api
+  name: Atlas Cloud Model Costs API
+  description: The Model Costs API from Atlas Cloud — 1 operation(s) for model costs.
+  humanURL: https://www.atlascloud.ai/docs/models/overview
+  baseURL: https://api.atlascloud.ai
+  tags:
+  - Model Costs
+  properties:
+  - type: OpenAPI
+    url: openapi/atlas-cloud-model-costs-api-openapi.yml
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/models/overview
+  - type: APIReference
+    url: https://www.atlascloud.ai/docs/openapi-index
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-get-api-v1-webhooks-jwks-json-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-response-schema.json
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/public-api
+- aid: atlas-cloud:atlas-cloud-model-usage-api
+  name: Atlas Cloud Model Usage API
+  description: The Model Usage API from Atlas Cloud — 1 operation(s) for model usage.
+  humanURL: https://www.atlascloud.ai/docs/models/overview
+  baseURL: https://api.atlascloud.ai
+  tags:
+  - Model Usage
+  properties:
+  - type: OpenAPI
+    url: openapi/atlas-cloud-model-usage-api-openapi.yml
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/models/overview
+  - type: APIReference
+    url: https://www.atlascloud.ai/docs/openapi-index
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-get-api-v1-webhooks-jwks-json-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-response-schema.json
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/public-api
+- aid: atlas-cloud:atlas-cloud-v1beta-api
+  name: Atlas Cloud V1Beta API
+  description: The V1Beta API from Atlas Cloud — 1 operation(s) for v1beta.
+  humanURL: https://www.atlascloud.ai/docs/models/overview
+  baseURL: https://api.atlascloud.ai
+  tags:
+  - V1Beta
+  properties:
+  - type: OpenAPI
+    url: openapi/atlas-cloud-v1beta-api-openapi.yml
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/models/overview
+  - type: APIReference
+    url: https://www.atlascloud.ai/docs/openapi-index
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-get-api-v1-webhooks-jwks-json-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-response-schema.json
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/public-api
+- aid: atlas-cloud:atlas-cloud-webhooks-api
+  name: Atlas Cloud Webhooks API
+  description: The Webhooks API from Atlas Cloud — 1 operation(s) for webhooks.
+  humanURL: https://www.atlascloud.ai/docs/models/overview
+  baseURL: https://api.atlascloud.ai
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/atlas-cloud-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/models/overview
+  - type: APIReference
+    url: https://www.atlascloud.ai/docs/openapi-index
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-get-api-v1-webhooks-jwks-json-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-response-schema.json
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/public-api
+- aid: atlas-cloud:atlas-cloud-chat-completions-api
+  name: Atlas Cloud Chat Completions API
+  description: The Chat Completions API from Atlas Cloud — 2 operation(s) for chat completions.
+  humanURL: https://www.atlascloud.ai/docs/models/overview
+  baseURL: https://api.atlascloud.ai
+  tags:
+  - Chat Completions
+  properties:
+  - type: OpenAPI
+    url: openapi/atlas-cloud-chat-completions-api-openapi.yml
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/models/overview
+  - type: APIReference
+    url: https://www.atlascloud.ai/docs/openapi-index
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-get-api-v1-webhooks-jwks-json-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-chat-completions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-v1-v1-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/atlas-cloud-post-chat-completions-response-schema.json
+  - type: Documentation
+    url: https://www.atlascloud.ai/docs/public-api
 x-enrichment:
   date: '2026-10-13'
   status: enriched
