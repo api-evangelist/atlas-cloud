@@ -24,3 +24,22 @@ plans:
   price_text: Contact sales
   features: []
   limits: []
+x-canonical:
+  generated: '2026-10-18'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - negotiated
+  units: []
+  plans:
+  - name: Pay-as-you-go
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Volume discounts
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
