@@ -20,5 +20,79 @@
   type: claimed
   evidence: https://www.atlascloud.ai/docs/integrations/n8n
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
+  arazzo: null
+- slug: atlas-cloud-openai
+  label: OpenAI
+  partner: openai
+  partner_name: OpenAI
+  type: contract
+  channel: provider-built
+  evidence: https://github.com/api-evangelist/atlas-cloud/blob/main/openapi/atlas-cloud-chat-completions-api-openapi.yml#L57
+  source: edge
+  relationship: compatible
+  contract_reference:
+    repo: atlas-cloud
+    spec_file: atlas-cloud-chat-completions-api-openapi.yml
+    property: description
+    value: OpenAI-compatible
+    note: 'atlas-cloud declares OpenAI compatibility: ''description: The LLM API supports both streaming and non-streaming
+      modes, fully compatible with the OpenAI ChatCompletion format.'''
+    detected_by: sweep-model-routing.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: atlas-cloud-n8n-n8n-community
+  label: n8n (n8n-community)
+  partner: n8n
+  partner_name: n8n (n8n-community)
+  type: marketplace
+  marketplace: n8n-community
+  channel: partner-built
+  evidence: https://www.npmjs.com/package/n8n-nodes-atlascloud
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: atlas-cloud-agent-skills-own-github-org
+  label: Agent Skills (own GitHub org)
+  partner_name: Agent Skills (own GitHub org)
+  category: Agent Skills package
+  type: register
+  channel: provider-built
+  evidence: https://github.com/AtlasCloudAI/atlas-cloud-skills
+  source: edge
+  relationship: compatible
+  contract_reference:
+    register: 'provider''s own GitHub org (GitHub REST API: repo + git tree holds SKILL.md)'
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-repo
+    matched_org: atlascloudai
+    matched_by: org-profile-domain:atlascloud.ai
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
+- slug: atlas-cloud-skills-sh
+  label: skills.sh
+  partner_name: skills.sh
+  category: Agent Skills register
+  type: register
+  channel: standard-directory
+  evidence: https://www.skills.sh/atlascloudai/atlas-cloud-skills
+  source: edge
+  relationship: compatible
+  contract_reference:
+    register: skills.sh (public sitemap / list)
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-listing
+    matched_org: atlascloudai
+    matched_by: org-profile-domain:atlascloud.ai
+    sample_skills:
+    - atlas-cloud
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  status: not-a-workflow
   arazzo: null
