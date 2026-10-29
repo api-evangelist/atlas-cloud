@@ -64,5 +64,152 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Atlas Cloud is a company surfaced via the API Evangelist harvest backlog (source: market-gap:ai-model-routing) and added to the network as a stub for full-pipeline profiling.
-- https://www.atlascloud.ai
+Atlas Cloud is an AI inference platform that serves 300+ third-party LLM, image, video, audio and 3D models through one API: an OpenAI-compatible chat completions surface at https://api.atlascloud.ai/v1 (plus Anthropic Messages and Gemini protocols), asynchronous image and video generation with prediction polling and signed webhooks at https://api.atlascloud.ai/api/v1, and a Billing Public API for balance, usage and cost at https://api.atlascloud.ai/public/v1. It also sells GPU cloud, bare-metal servers and storage, and ships an official MCP server, CLI and agent skills.
+
+**Areas:** Company · Artificial Intelligence · LLM · Model Routing · Image Generation · Video Generation · Inference · GPU Cloud · MCP
+
+## Atlas Cloud on APIs.io
+
+Everything profiled for Atlas Cloud is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/atlas-cloud/](https://apis.io/providers/atlas-cloud/)** — or go straight to one of the APIs or properties below.
+
+### APIs (10)
+
+- [Atlas Cloud Balance API](https://apis.io/apis/atlas-cloud/atlas-cloud-balance-api/) — The Balance API from Atlas Cloud — 1 operation(s) for balance.
+- [Atlas Cloud Completions API](https://apis.io/apis/atlas-cloud/atlas-cloud-completions-api/) — The Completions API from Atlas Cloud — 1 operation(s) for completions.
+- [Atlas Cloud Images API](https://apis.io/apis/atlas-cloud/atlas-cloud-images-api/) — The Images API from Atlas Cloud — 1 operation(s) for images.
+- [Atlas Cloud Messages API](https://apis.io/apis/atlas-cloud/atlas-cloud-messages-api/) — The Messages API from Atlas Cloud — 1 operation(s) for messages.
+- [Atlas Cloud Model API](https://apis.io/apis/atlas-cloud/atlas-cloud-model-api/) — The Model API from Atlas Cloud — 3 operation(s) for model.
+- [Atlas Cloud Model Costs API](https://apis.io/apis/atlas-cloud/atlas-cloud-model-costs-api/) — The Model Costs API from Atlas Cloud — 1 operation(s) for model costs.
+- [Atlas Cloud Model Usage API](https://apis.io/apis/atlas-cloud/atlas-cloud-model-usage-api/) — The Model Usage API from Atlas Cloud — 1 operation(s) for model usage.
+- [Atlas Cloud V1Beta API](https://apis.io/apis/atlas-cloud/atlas-cloud-v1beta-api/) — The V1Beta API from Atlas Cloud — 1 operation(s) for v1beta.
+- [Atlas Cloud Webhooks API](https://apis.io/apis/atlas-cloud/atlas-cloud-webhooks-api/) — The Webhooks API from Atlas Cloud — 1 operation(s) for webhooks.
+- [Atlas Cloud Chat Completions API](https://apis.io/apis/atlas-cloud/atlas-cloud-chat-completions-api/) — The Chat Completions API from Atlas Cloud — 2 operation(s) for chat completions.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Atlas Cloud Webhooks](https://apis.io/asyncapis/atlas-cloud/atlas-cloud-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Atlas Cloud MCP Server](https://apis.io/servers/atlas-cloud/atlas-cloud-mcp-server/)
+
+#### JSON Schema (6)
+
+The data models the API reads and writes.
+
+- [GetApiV1WebhooksJwksJsonResponse](https://apis.io/schemas/atlas-cloud/atlas-cloud-get-api-v1-webhooks-jwks-json-response/)
+- [PostChatCompletionsRequest](https://apis.io/schemas/atlas-cloud/atlas-cloud-post-chat-completions-request/)
+- [PostChatCompletionsResponse](https://apis.io/schemas/atlas-cloud/atlas-cloud-post-chat-completions-response/)
+- [PostV1ChatCompletionsRequest](https://apis.io/schemas/atlas-cloud/atlas-cloud-post-v1-chat-completions-request/)
+- [PostV1V1IdRequest](https://apis.io/schemas/atlas-cloud/atlas-cloud-post-v1-v1-id-request/)
+- [PostV1V1IdResponse](https://apis.io/schemas/atlas-cloud/atlas-cloud-post-v1-v1-id-response/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Atlas Cloud Context](https://apis.io/jsonld/atlas-cloud/atlas-cloud-context/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Atlas Cloud API Rules](https://apis.io/rules/atlas-cloud/atlas-cloud-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Atlas Cloud Authentication](https://apis.io/security/atlas-cloud/atlas-cloud-authentication/)
+- [Atlas Cloud Domain Security](https://apis.io/security/atlas-cloud/atlas-cloud-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Atlas Cloud Plans Pricing](https://apis.io/plans/atlas-cloud/atlas-cloud-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Atlas Cloud Rate Limits](https://apis.io/rate-limits/atlas-cloud/atlas-cloud-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.atlascloud.ai)
+- [Documentation](https://www.atlascloud.ai/docs)
+- [Getting started](https://www.atlascloud.ai/docs/get-started)
+- [API reference](https://www.atlascloud.ai/docs/openapi-index)
+- [Pricing](https://www.atlascloud.ai/docs/models/price)
+- [Support](https://www.atlascloud.ai/docs/contact)
+- [Changelog](https://www.atlascloud.ai/docs/changelog)
+- [Blog](https://www.atlascloud.ai/blog)
+- [Terms of service](https://www.atlascloud.ai/privacy)
+- [Privacy policy](https://www.atlascloud.ai/docs/privacy)
+- [GitHub](https://github.com/AtlasCloudAI)
+
+## API Evangelist rating
+
+**Kin Score 54.5** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.3 |
+| Contract quality | 33.3 |
+| Contract governance | 22.0 |
+| Operational transparency | 50.0 |
+| Developer ergonomics | 80.4 |
+| Access clarity | 65.8 |
+
+**Agent readiness 33.5** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 22.7** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/atlas-cloud/](https://apis.io/providers/atlas-cloud/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Atlas Cloud: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/atlas-cloud/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
